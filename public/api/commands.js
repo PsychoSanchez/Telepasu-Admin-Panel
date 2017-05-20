@@ -1,12 +1,12 @@
 exports.commands = {
     connectAsterisk: function (username, pwd, ip, port) {
         return JSON.stringify({
-            action: "Add Module",
-            type: "Asterisk",
-            username: username,
-            pwd: pwd,
-            ip: ip,
-            port: port
+            Action: "Add Module",
+            Type: "Asterisk",
+            Username: username,
+            Pwd: pwd,
+            Ip: ip,
+            Port: port
         });
     }
 };
