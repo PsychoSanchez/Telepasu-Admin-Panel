@@ -2,14 +2,14 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 const req = require('electron-require');
-const {ipcRenderer} = require('electron');
-const {commands} = req('../../api/commands.js');
-const {login} = req('../../api/messages.js');
+const { ipcRenderer } = require('electron');
+const { messages, commands } = req('../../api/messages.js');
 const AuthorizationWindow = require('./authorizationPage.js');
 
 const net = require('net');
 const client = new net.Socket();
 const auth = new AuthorizationWindow(client);
+
 class TelepasuMainWindow {
   constructor() {
     this.initEvents();
@@ -29,27 +29,61 @@ class TelepasuMainWindow {
       auth.setConnecting(true);
       client.connect(port, ip, () => {
         console.log('Connected');
-        client.write(login(auth.username.val(), auth.password.val(), 'Admin'));
+        client.write(messages.login(auth.username.val(), auth.password.val(), 'Admin'));
       });
     });
     // $('.connect-asterisk-btn').addEventListener('click', function (params) {
     //   client.write(commands.connectAsterisk("mark", "hjok123", "192.168.1.39", 5038))
     // });
   }
+  porceedLogin(data) {
+    if (data.Status === 200) {
+      console.log(data.Message);
+      Materialize.toast(data.Message, 3000, 'rounded');
+      auth.setConnecting(false);
+      auth.modal.fadeOut(1500);
+      client.write(messages.ping());
+    } else {
+      auth.setConnecting(false);
+      auth.modal.fadeIn(1500);
+    }
+  }
+  proceedAction(data) {
+     switch (data.Action) {
+        case 'Login':
+          this.porceedLogin(data);
+          break;
+        case 'Ping':
+          setTimeout(function () {
+            client.write(messages.ping());
+          }, 4000);
+          break;
+        default:
+          console.log('Received: ', data);
+          break;
+      }
+  }
 
   initConnectionEvents() {
-    client.on('data', function (data) {
-      console.log('Received: ' + data);
-      // client.destroy(); // kill client after server's response
+    client.on('data', (message) => {
+      let data = message;
+      try {
+        data = JSON.parse(message);
+      } catch (e) {
+        console.log(data);
+        return;
+      }
+      this.proceedAction(data);
     });
 
     client.on('error', (ex) => {
-      TelepasuMainWindow.handleError(ex.message);
+      TelepasuMainWindow.handleSocketError(ex.message);
     });
 
     client.on('close', function () {
       console.log('Connection closed');
       client.destroy();
+      auth.modal.fadeIn(500);
       auth.setConnecting(false);
     });
   }
@@ -58,13 +92,20 @@ class TelepasuMainWindow {
 
   }
 
-  static handleError(error) {
+  static handleSocketError(error) {
+    auth.setConnecting(false);
+    let message;
     if (error.indexOf('ECONNREFUSED') !== -1) {
-      Materialize.toast('Connection refused!', 3000, 'rounded');
-      auth.setConnecting(false);
+      message = 'Не удалось подключиться!';
+    } else if (error.indexOf('ECONNREST') !== -1) {
+      message = 'Удалённый хост разорвал подключение!';
+    } else if (error.indexOf('ECONNRESET') !== -1) {
+      message = 'Удалённый хост разорвал подключение!';
     } else {
-      Materialize.toast(error, 3000, 'rounded');
+      message = error;
+      console.log(error);
     }
+    Materialize.toast(message, 3000, 'rounded');
   }
 }
 
