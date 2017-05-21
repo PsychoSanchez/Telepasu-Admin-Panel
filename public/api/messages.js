@@ -14,6 +14,13 @@ exports.messages = {
 };
 
 exports.commands = {
+  disconnect: function () {
+    return JSON.stringify({
+      Action: "Disconnect"
+    });
+  }
+};
+exports.adminCommands = {
   connectAsterisk: function (username, pwd, ip, port) {
     return JSON.stringify({
       Action: "Add Module",

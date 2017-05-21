@@ -16,7 +16,9 @@
 .authorization-form {
     color: white;
 }
-
+.modal-header.row{
+    border-bottom: 1px solid rgb(255, 223, 223);
+}
 .modal-body {
     padding: 0 50px;
 }
