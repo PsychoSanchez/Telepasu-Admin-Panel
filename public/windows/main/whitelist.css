@@ -1,0 +1,61 @@
+a.btn.waves-light {
+  font-size: 15px;
+}
+.main-window {
+  padding: 0 20px;
+}
+html {
+  height: 100%;
+  background-color: #eeeeee;
+}
+.mobile-nav-header {
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+.page-navbar {
+  margin-top: 4px;
+  padding: 15px 30px;
+  width: 100%;
+  border-bottom: 1px solid darkgrey;
+  background-color: #fafafa;
+}
+.page-navbar h5 {
+  margin: 0;
+}
+.page-navbar div {
+  line-height: 1;
+}
+.page-navbar .breadcrumb {
+  color: gray !important;
+  font-size: 15px;
+}
+.page-navbar .breadcrumb:before {
+  color: gray;
+  font-size: 15px;
+}
+.page-navbar .material-icons {
+  margin-left: 10px;
+  font-size: 15px;
+  color: gray;
+  vertical-align: text-top;
+  display: inline-block;
+}
+.page-navbar .bread {
+  display: inline-block;
+}
+.add-ip .row {
+  margin-bottom: 0;
+}
+.card-panel {
+  position: relative;
+  padding-top: 40px;
+}
+.card-panel .card-header {
+  top: 10px;
+  left: 0px;
+  padding-left: 20px;
+  border-bottom: 1px solid #d0d0d0;
+  font-size: 17px;
+  position: absolute;
+  width: 100%;
+}

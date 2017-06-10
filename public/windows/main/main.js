@@ -2,8 +2,8 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 const req = require('electron-require');
-const {ipcRenderer} = require('electron');
-const {messages, commands, adminCommands} = req('../../api/messages.js');
+const { ipcRenderer } = require('electron');
+const { messages, commands, adminCommands } = req('../../api/messages.js');
 const AuthorizationWindow = require('./authorizationPage.js');
 
 const net = require('net');
@@ -18,6 +18,7 @@ class TelepasuMainWindow {
 
   initView() {
     this.disconnectBtn = $('.disconnect-server').hide();
+    this.afterAuth = $('.auth-true').hide();
   }
 
   initEvents() {
@@ -41,9 +42,9 @@ class TelepasuMainWindow {
     this.disconnectBtn.on('click', () => {
       client.write(commands.disconnect());
     });
-    // $('.connect-asterisk-btn').addEventListener('click', function (params) {
-    //   client.write(commands.connectAsterisk("mark", "hjok123", "192.168.1.39", 5038))
-    // });
+    $('.connect-asterisk-btn').on('click', function (params) {
+      client.write(adminCommands.connectAsterisk("mark", "hjok123", "192.168.1.39", 5038))
+    });
   }
 
   initConnectionEvents() {
@@ -87,12 +88,12 @@ class TelepasuMainWindow {
 
   setConnected(value) {
     if (value) {
-      this.disconnectBtn.fadeIn(1500);
+      this.afterAuth.fadeIn(1500);
       auth.setConnecting(false);
       auth.modal.fadeOut(1500);
       return;
     }
-    this.disconnectBtn.fadeOut(1500);
+    this.afterAuth.fadeOut(1500);
     auth.setConnecting(false);
     auth.modal.fadeIn(1500);
   }

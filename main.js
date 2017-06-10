@@ -16,15 +16,18 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800, height: 600,
     minHeight: 600,
-    minWidth: 800
+    minWidth: 800,
+    title: 'Admin Panel'
   })
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, '/public/windows/main/', 'index.html'),
+    pathname: path.join(__dirname, '/public/windows/main/', 'whitelist.html'),
     protocol: 'file:',
     slashes: true
   }))
+
+  // mainWindow.setMenu(null);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -59,6 +62,7 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
