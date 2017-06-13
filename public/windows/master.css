@@ -1,0 +1,82 @@
+.authorization-dialog {
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.side-nav.fixed {
+  z-index: 0;
+}
+.main-window {
+  padding-left: 300px;
+}
+.navbar-fixed .brand-logo {
+  margin-left: 15px;
+}
+.authorization-form {
+  color: white;
+  padding-top: 80px;
+}
+.authorization-form .modal-body {
+  padding: 0 15px;
+}
+.authorization-form .modal-header {
+  color: #8894ab;
+  text-align: left;
+  padding-left: 35px;
+}
+.authorization-form .connect-server {
+  float: none;
+}
+.authorization-form .progress-block {
+  display: none;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.authorization-form .row {
+  margin-bottom: 0;
+}
+.authorization-form .material-icons {
+  margin-top: 10px;
+}
+.authorization-form .input-field {
+  /* invalid color */
+}
+.authorization-form .input-field label {
+  color: #fff;
+}
+.authorization-form .input-field input[type=text]:focus,
+.authorization-form .input-field input[type=password]:focus {
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 1px 0 0 #fff;
+}
+.authorization-form .input-field input[type=text]:focus + label,
+.authorization-form .input-field input[type=password]:focus + label {
+  color: #fff;
+}
+.authorization-form .input-field input[type=text].valid,
+.authorization-form .input-field input[type=password].valid {
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 1px 0 0 #fff;
+}
+.authorization-form .input-field input[type=text].invalid,
+.authorization-form .input-field input[type=password].invalid {
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 1px 0 0 #fff;
+}
+.authorization-form .input-field .prefix.active {
+  color: #fff;
+}
+.authorization-form .spinner-white-only {
+  border-color: white;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.preloader-wrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}

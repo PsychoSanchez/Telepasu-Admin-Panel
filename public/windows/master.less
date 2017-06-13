@@ -1,0 +1,90 @@
+.authorization-dialog {
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.side-nav.fixed {
+  z-index: 0;
+}
+
+.main-window {
+  padding-left: 300px;
+}
+
+.navbar-fixed {
+  .brand-logo {
+    margin-left: 15px;
+  }
+}
+
+.authorization-form {
+  color: white;
+  padding-top: 80px;
+
+  .modal-body {
+    padding: 0 15px;
+  }
+  .modal-header {
+    color: #8894ab;
+    text-align: left;
+    padding-left: 35px;
+  }
+  .connect-server {
+    float: none;
+  }
+
+  .progress-block {
+    display: none;
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+  .row {
+    margin-bottom: 0;
+  }
+  .material-icons {
+    margin-top: 10px;
+  }
+
+  .input-field {
+    label {
+      color: #fff;
+    }
+    input[type=text]:focus, input[type=password]:focus {
+      border-bottom: 1px solid #fff;
+      box-shadow: 0 1px 0 0 #fff;
+      + label {
+        color: #fff;
+      }
+    }
+    input[type=text].valid, input[type=password].valid {
+      border-bottom: 1px solid #fff;
+      box-shadow: 0 1px 0 0 #fff;
+    }
+
+    /* invalid color */
+    input[type=text].invalid, input[type=password].invalid {
+      border-bottom: 1px solid #fff;
+      box-shadow: 0 1px 0 0 #fff;
+    }
+    .prefix.active {
+      color: #fff;
+    }
+  }
+
+  .spinner-white-only {
+    border-color: white;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.preloader-wrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}

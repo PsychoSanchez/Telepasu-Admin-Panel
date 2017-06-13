@@ -4,7 +4,7 @@
 const req = require('electron-require');
 const { ipcRenderer } = require('electron');
 const { messages, commands, adminCommands } = req('../../api/messages.js');
-const AuthorizationWindow = require('./authorizationPage.js');
+const AuthorizationWindow = require('./main/authorizationPage.js');
 
 const net = require('net');
 const client = new net.Socket();
