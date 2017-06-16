@@ -3,7 +3,9 @@ const electron = require('electron')
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
-
+const { ipcMain } = require('electron')
+const req = require('electron-require');
+const { messages, commands, adminCommands } = req('./public/api/messages.js');
 const path = require('path')
 const url = require('url')
 
@@ -22,7 +24,7 @@ function createWindow() {
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, '/public/windows/main/', 'whitelist.html'),
+    pathname: path.join(__dirname, '/public/windows/', 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -63,6 +65,61 @@ app.on('activate', function () {
   }
 })
 
+const net = require('net');
+const client = new net.Socket();
+let reciever = null;
+let connected = false;
+
+ipcMain.on('update-reciever', (event, arg) => {
+  reciever = event.sender;
+});
+
+ipcMain.on('connect-server', (event, arg) => {
+  console.log(arg)  // prints "ping"
+  client.connect(arg.port, arg.ip, () => {
+    client.write(messages.login(arg.username, arg.password, 'Admin'));
+  });
+  reciever = event.sender;
+});
+
+ipcMain.on('write', (event, command) => {
+  client.write(command);
+});
+
+client.on('data', (message) => {
+  connected = true;
+  let msg = {};
+  try {
+    msg = JSON.parse(message);
+  } catch (error) {
+
+  }
+  if (msg.Action === 'Login') {
+    setTimeout(function () {
+      client.write(JSON.stringify({
+        Action: "Subscribe",
+        Tag: 'DBTagResponse'
+      }));
+    }, 100);
+  }
+  reciever.send('data', message);
+});
+
+client.on('error', (ex) => {
+  reciever.send('error', ex);
+  connected = false;
+});
+
+client.on('close', () => {
+  reciever.send('close', '');
+  connected = false;
+  client.destroy();
+});
+
+ipcMain.on('isConnected', (event, arg) => {
+  reciever = event.sender;
+  event.returnValue = connected
+})
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.

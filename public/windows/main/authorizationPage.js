@@ -1,8 +1,7 @@
 const req = require('electron-require');
 
 class AuthorizationWindow {
-  constructor(client) {
-    this.client = client;
+  constructor() {
     this.pending = false;
     this.modal = $('.authorization-form');
     this.submitBtn = this.modal.find('.connect-server');

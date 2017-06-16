@@ -8,7 +8,7 @@
         rel="stylesheet">
   <link rel="stylesheet" type="text/css"
         href="../../styles/css/materialize.min.css" media="screen,projection">
-  <link rel="stylesheet" type="text/css" href="../main/main2.css"
+  <link rel="stylesheet" type="text/css" href="../shared/modules.css"
         media="screen,projection">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -19,97 +19,161 @@
 </script>
 <script src="../../styles/js/hammer.min.js"></script>
 <script src="../../styles/js/materialize.min.js"></script>
+<ul class="side-nav blue-grey darken-3" id="mobile-demo">
+  <li><h4 class="white-text mobile-nav-header">Telepasu Admin Panel</h4></li>
+  <li><a class="white-text" href="../index.html">Главная</a></li>
+  <li><a class="white-text" href="../settings/settings.html">Настройки</a></li>
+  <li><a class="white-text" href="./modules.html">Аналитика</a></li>
+  <li><a class="white-text" href="../monitoring/index.html">Мониторинг</a></li>
+</ul>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper blue-grey darken-3">
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i
+          class="material-icons">menu</i></a>
+      <a href="#" class="brand-logo center">Модули</a>
+      <ul id="nav-mobile" class="right">
+        <li><a class="waves-effect waves-light btn"><i
+            class="material-icons right">power_settings_new</i>выход</a></li>
 
-<nav>
-  <div class="nav-wrapper teal lighten-2">
-    <ul id="nav" class="left">
-      <li>
-        <div class="left"><a class="waves-effect waves-light btn"><i
-            class="material-icons left">chevron_left</i>назад</a></div>
-      </li>
-    </ul>
+      </ul>
 
-    <a href="#" class="brand-logo center">Модули</a>
-    <ul id="nav-mobile" class="right">
-      <li><a class="waves-effect waves-light btn"><i
-          class="material-icons right">power_settings_new</i>выход</a></li>
-
-    </ul>
+      <ul class="left hide-on-med-and-down">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="../settings/settings.html">Настройки</a></li>
+        <li><a href="./modules.html">Аналитика</a></li>
+        <li><a href="../monitoring/index.html">Мониторинг</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="page-navbar">
+  <h5>Управление модулями</h5>
+  <i class="material-icons">home</i>
+  <div class="bread">
+    <a href="../index.html" class="breadcrumb">Главная</a>
+    <a href="../settings/settings.html" class="breadcrumb">Настройки</a>
+    <a href="./modules.html" class="breadcrumb">Управление модулями</a>
   </div>
-</nav>
+</div>
 <div class="main-window">
-  <div class="row ">
-    <h4>Управление модулями</h4>
-  </div>
-  <div class="row">
-    <div class="col s7">
-      <h5 class="header">Native модули</h5>
+  <div class="add-ip card-panel grey lighten-5 z-depth-1">
+    <div class="card-header">
+      Native модули
     </div>
-    <div class="col s5">
-      <a class="waves-effect waves-light btn right add-asterisk">Добавить АТС<i class="material-icons right">add</i></a>
-    </div>
-    <div class="input-field col s6">
+    <div class="row">
+      <span class="flow-text">Добавление подключения к АТС</span>
+      <a data-target="modal2"
+         class="waves-effect waves-light btn right add-asterisk">Добавить АТС<i
+          class="material-icons right">add</i></a>
     </div>
   </div>
-  <div class="row">
-    <div class="col s12">
-      <table class="col s12 bordered highlight">
-        <thead>
-        <tr>
-          <th>АТС</th>
-          <th>Описание</th>
-          <th style="width:200px">Статус</th>
-          <th style="width:100px">Настройки</th>
-        </tr>
-        </thead>
+  <div class="card-panel grey lighten-5 z-depth-1">
+    <div class="card-header">
+      Список, подключенных АТС
+    </div>
+    <table class="col s12 bordered highlight">
+      <thead>
+      <tr>
+        <th>Адрес</th>
+        <th>АТС</th>
+        <th>Описание</th>
+        <th style="width:200px">Статус</th>
+        <th style="width:100px">Настройки</th>
+      </tr>
+      </thead>
 
-        <tbody>
-        <tr>
-          <td>Asterisk</td>
-          <td>Asterisk 1</td>
-          <td>Подключен</td>
-          <td><a class="btn-flat btn-small dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons">edit</i></a></td>
-        </tr>
-        </tbody>
-      </table>
-      <!--<p>АТС не добавлена. Для начала работы нажмите кнопку добавить АТС.</p>-->
+      <tbody class="connected-native-modules">
+      </tbody>
+    </table>
+  </div>
+  <div class="add-ip card-panel grey lighten-5 z-depth-1">
+    <div class="card-header">
+      Модули системы
+    </div>
+    <div class="row">
+      <span class="flow-text">Добавление микросервиса (модуля)</span>
+      <a data-target="modal1"
+         class="waves-effect waves-light btn right add-module">Добавить модуль<i
+          class="material-icons right">add</i></a>
     </div>
   </div>
-  <div class="row">
-    <div class="col s7">
-      <h5 class="header">Модули системы</h5>
+  <div class="card-panel grey lighten-5 z-depth-1">
+    <div class="card-header">
+      Список, подключенных микросервисов (модулей)
     </div>
-    <div class="col s5">
-      <a class="waves-effect waves-light btn right add-module">Добавить модуль<i class="material-icons right">add</i></a>
-    </div>
-    <div class="input-field col s6">
+    <table class="col s12 bordered highlight">
+      <thead>
+      <tr>
+        <th>Адрес</th>
+        <th>Описание</th>
+        <th style="width:200px">Статус</th>
+        <th style="width:100px">Настройки</th>
+      </tr>
+      </thead>
+
+      <tbody class="connected-modules">
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="modal1" class="modal bottom-sheet blue-grey darken-3">
+  <div class="modal-content white-text">
+    <h4>Добавление модуля</h4>
+    <div class="row" style="border-top: 1px solid white;">
+      <div class="input-field col s4">
+        <input id="description" type="text" class="validate white-text">
+        <label for="description">Описание</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="ip-address" type="text" class="validate white-text">
+        <label for="ip-address">IP Адрес</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="port" type="text" class="validate white-text">
+        <label for="port">Порт</label>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col s12">
-      <table class="col s12 bordered highlight">
-        <thead>
-        <tr>
-          <th>Адрес</th>
-          <th>Описание</th>
-          <th style="width:200px">Статус</th>
-          <th style="width:100px">Настройки</th>
-        </tr>
-        </thead>
+  <div class="modal-footer  blue-grey darken-3">
+    <a href="#!"
+       class="connect-module waves-effect waves-green btn-flat white-text">Подключить</a>
+  </div>
+</div>
 
-        <tbody>
-        <tr>
-          <td>localhost:5001</td>
-          <td>Модуль аналитики</td>
-          <td>Подключен</td>
-          <td ><a class="btn-flat btn-small dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons">edit</i></a></td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col">
 
+<div id="modal2" class="modal bottom-sheet blue-grey darken-3">
+  <div class="modal-content white-text">
+    <h4>Добавление АТС</h4>
+    <div class="row" style="border-top: 1px solid white;">
+      <div class="input-field col s4">
+        <input id="native-description" type="text" class="validate white-text">
+        <label for="native-description">Описание</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="native-ip-address" type="text" class="validate white-text">
+        <label for="native-ip-address">IP Адрес</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="native-port" type="text" class="validate white-text">
+        <label for="native-port">Порт</label>
+      </div>
     </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="native-username" type="text" class="validate white-text">
+        <label for="native-username">Имя пользователя</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="native-password" type="password" class="validate white-text">
+        <label for="native-password">Пароль</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer  blue-grey darken-3">
+    <a href="#!"
+       class="connect-native-module waves-effect waves-green btn-flat white-text">Подключить</a>
   </div>
 </div>
 </body>

@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "electron-json-storage": "^3.0.5",
-    "electron-require": "^0.3.0"
+    "electron-require": "^0.3.0",
+    "require-text": "0.0.1"
   }
 }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Telepasu Admin Panel - Управление пользователями</title>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+        href="../../styles/css/materialize.min.css" media="screen,projection">
+  <link rel="stylesheet" type="text/css" href="../main/main2.css"
+        media="screen,projection">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+<script>
+  require('jquery')
+</script>
+<script src="../../styles/js/hammer.min.js"></script>
+<script src="../../styles/js/materialize.min.js"></script>
+
+<nav>
+  <div class="nav-wrapper teal lighten-2">
+    <ul id="nav" class="left">
+      <li>
+        <div class="left"><a class="waves-effect waves-light btn"><i
+            class="material-icons left">chevron_left</i>назад</a></div>
+      </li>
+    </ul>
+
+    <a href="#" class="brand-logo center">Пользователи</a>
+    <ul id="nav-mobile" class="right">
+      <li><a class="waves-effect waves-light btn"><i
+          class="material-icons right">power_settings_new</i>выход</a></li>
+
+    </ul>
+  </div>
+</nav>
+<div class="main-window">
+  <div class="row">
+    <div class="col s12"></div>
+    <h5>Управление пользователями сервера</h5>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">search</i>
+      <input id="icon_prefix" type="text" class="validate">
+      <label for="icon_prefix">Поиск</label>
+    </div>
+    <div class="input-field col s6">
+      <a class="waves-effect waves-light btn right">Добавить пользователя <i class="material-icons right">add</i></a>
+    </div>
+  </div>
+  <div class="row">
+    <table class="col s12 bordered highlight">
+      <thead>
+      <tr>
+        <th>Логин</th>
+        <th>Имя пользователя</th>
+        <th>Номер телефона</th>
+        <th>Почта</th>
+        <th>Роль</th>
+        <th>Настройки</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td>Alex</td>
+        <td>Аронов Александр</td>
+        <td>+79208640834</td>
+        <td>aronov@competentum.ru</td>
+        <td>Администратор</td>
+        <td>
+          <!--<ul id="dropdown2" class="dropdown-content">-->
+            <!--<li><a href="#!">one<span class="badge">1</span></a></li>-->
+            <!--<li><a href="#!">two<span class="new badge">1</span></a></li>-->
+            <!--<li><a href="#!">three</a></li>-->
+          <!--</ul>-->
+          <a class="btn-flat btn-small dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons">edit</i></a>
+        </td>
+      </tr>
+      <tr>
+        <td>MrJonik</td>
+        <td>Лупачёв Евгений</td>
+        <td>101</td>
+        <td>lupachev@competentum.ru</td>
+        <td>Администратор</td>
+        <td><a class="btn-flat btn-small dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons">edit</i></a></td>
+      </tr>
+      <tr class="add-user">
+        <td>Mark</td>
+        <td>Иван Иванов</td>
+        <td>+1234567890</td>
+        <td>test@competentum.ru</td>
+        <td>Пользователь</td>
+        <td><a class="btn-flat btn-small dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons">edit</i></a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+
+<script>
+  require('./users.js')
+
+</script>
+
+</html>

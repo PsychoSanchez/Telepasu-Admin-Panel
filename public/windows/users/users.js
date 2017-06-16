@@ -4,3 +4,5 @@
 $('.add-user').click(function () {
   Materialize.toast('Пользователь Mark успешно добавлен', 3000, 'rounded');
 });
+
+$(".button-collapse").sideNav();
