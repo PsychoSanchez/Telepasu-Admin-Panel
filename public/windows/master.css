@@ -144,3 +144,10 @@ body {
 .page-navbar .bread {
   display: inline-block;
 }
+.analytics-main .card {
+  margin: 15px 15px;
+}
+.widget {
+  margin: 0 auto;
+  border-radius: 5px;
+}

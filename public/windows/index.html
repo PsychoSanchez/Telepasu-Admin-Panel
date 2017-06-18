@@ -11,33 +11,6 @@
   <link rel="stylesheet" type="text/css" href="master.css"
         media="screen,projection">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!--<script type="text/javascript"-->
-          <!--src="https://www.gstatic.com/charts/loader.js"></script>-->
-  <!--<script type="text/javascript">-->
-    <!--google.charts.load('current', {'packages': ['bar']});-->
-    <!--google.charts.setOnLoadCallback(drawChart);-->
-
-    <!--function drawChart() {-->
-      <!--var data = google.visualization.arrayToDataTable([-->
-        <!--['Year', 'Sales', 'Expenses', 'Profit'],-->
-        <!--['2014', 1000, 400, 200],-->
-        <!--['2015', 1170, 460, 250],-->
-        <!--['2016', 660, 1120, 300],-->
-        <!--['2017', 1030, 540, 350]-->
-      <!--]);-->
-
-      <!--var options = {-->
-        <!--chart: {-->
-          <!--title: 'Company Performance',-->
-          <!--subtitle: 'Sales, Expenses, and Profit: 2014-2017',-->
-        <!--}-->
-      <!--};-->
-
-      <!--var chart = new google.charts.Bar(document.getElementById('myPieChart'));-->
-
-      <!--chart.draw(data, google.charts.Bar.convertOptions(options));-->
-    <!--}-->
-  <!--</script>-->
 </head>
 
 <body style="position: relative">
@@ -48,8 +21,6 @@
 <script src="../styles/js/hammer.min.js"></script>
 <script src="../styles/js/materialize.min.js"></script>
 
-<!--<a class="btn btn-floating btn-large pulse"><i class="material-icons">cloud</i></a>
-<a class="waves-effect waves-light btn connect-asterisk-btn pulse">Connect Asterisk</a>-->
 <div class="side-nav login fixed white-text blue-grey darken-3"
      style="transform: translateX(0px);">
   <div class="authorization-form center-align">
@@ -105,12 +76,14 @@
     </div>
   </div>
 </div>
+
 <ul class="side-nav blue-grey darken-3" id="mobile-demo">
   <li><h4 class="mobile-nav-header">Telepasu Admin Panel</h4></li>
   <li><a class="white-text" href="./index.html">Главная</a></li>
   <li><a class="white-text" href="./settings/settings.html">Настройки</a></li>
   <li><a class="white-text" href="#">Мониторинг</a></li>
 </ul>
+
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper blue-grey darken-3">
@@ -119,12 +92,13 @@
           class="material-icons">menu</i></a>
       <a href="#" class="brand-logo login center">Telepasu Admin
         Panel</a>
-      <a href="#" class="brand-logo dashboard center" style="display: none">Dashboard</a>
+      <a href="#" class="brand-logo dashboard center" style="display: none">Панель
+        управления</a>
       <ul id="nav-mobile" class="dashboard right">
         <li><a class="waves-effect disconnect-server waves-light btn"><i
             class="material-icons right">power_settings_new</i>выход</a></li>
       </ul>
-      <ul class="left hide-on-med-and-down">
+      <ul class="left hide-on-med-and-down dashboard">
         <li><a class="white-text" href="./index.html">Главная</a></li>
         <li><a class="white-text" href="./settings/settings.html">Настройки</a>
         </li>
@@ -133,6 +107,7 @@
     </div>
   </nav>
 </div>
+
 <div class="dashboard page-navbar">
   <h5>Dashboard - Главная</h5>
   <i class="material-icons">home</i>
@@ -140,6 +115,7 @@
     <a href="#" class="breadcrumb">Главная</a>
   </div>
 </div>
+
 <div class="main-window login">
   <div class="card horizontal">
     <div class="card-image valign-wrapper">
@@ -187,16 +163,34 @@
     </div>
   </div>
 </div>
+
 <div class="dashboard analytics-main">
-  <div class="card horizontal">
+  <div class="card horizontal blue-grey darken-3 white-text">
+    <div class="card-image valign-wrapper">
+      <i class="material-icons medium">
+        supervisor_account</i>
+    </div>
+    <div class="card-stacked">
+      <div class="card-content flow-text">
+        Пользователей онлайн: <span class="users-count">0</span>
+      </div>
+      <div class="card-action">
+        <a href="#">список (В разработке)</a>
+      </div>
+    </div>
+  </div>
+  <div class="card horizontal blue-grey darken-3 white-text">
     <div class="card-image valign-wrapper">
       <i class="material-icons medium">assessment</i>
     </div>
     <div class="card-stacked">
-      <div class="card-content">
-        <h5>Аналитика</h5>
-        <p>Просмотр отчётной статистики работы АТС и клиентских
-          приложений</p>
+      <div class="card-content white-text">
+        <p class="flow-text" style="border-bottom: 1px solid white">
+          Аналитика</p>
+        <!--<p class="flow-text ats-not-connected">АТС не подключена</p>-->
+        <!--<p class="flow-text module-not-connected">Модуль аналитики не-->
+          <!--подключен</p>-->
+        <div class="graphic-cool"></div>
       </div>
       <div class="card-action">
         <a href="#">В разработке</a>

@@ -71,7 +71,7 @@
         <label for="icon_prefix">Поиск</label>
       </div>
       <div class="input-field col s6">
-        <a class="waves-effect waves-light btn right">Добавить пользователя <i
+        <a data-target="modal1" class=" waves-effect waves-light btn right">Добавить пользователя<i
             class="material-icons right">add</i></a>
       </div>
     </div>
@@ -84,55 +84,46 @@
       <thead>
       <tr>
         <th>Логин</th>
-        <th>Имя пользователя</th>
-        <th>Номер телефона</th>
-        <th>Почта</th>
         <th>Роль</th>
         <th>Настройки</th>
       </tr>
       </thead>
 
-      <tbody>
-      <tr>
-        <td>Alex</td>
-        <td>Аронов Александр</td>
-        <td>+79208640834</td>
-        <td>aronov@competentum.ru</td>
-        <td>Администратор</td>
-        <td>
-          <!--<ul id="dropdown2" class="dropdown-content">-->
-          <!--<li><a href="#!">one<span class="badge">1</span></a></li>-->
-          <!--<li><a href="#!">two<span class="new badge">1</span></a></li>-->
-          <!--<li><a href="#!">three</a></li>-->
-          <!--</ul>-->
-          <a class="btn-flat btn-small dropdown-button" href="#!"
-             data-activates="dropdown2"><i class="material-icons">edit</i></a>
-        </td>
-      </tr>
-      <tr>
-        <td>MrJonik</td>
-        <td>Лупачёв Евгений</td>
-        <td>101</td>
-        <td>lupachev@competentum.ru</td>
-        <td>Администратор</td>
-        <td><a class="btn-flat btn-small dropdown-button" href="#!"
-               data-activates="dropdown2"><i class="material-icons">edit</i></a>
-        </td>
-      </tr>
-      <tr class="add-user">
-        <td>Mark</td>
-        <td>Иван Иванов</td>
-        <td>+1234567890</td>
-        <td>test@competentum.ru</td>
-        <td>Пользователь</td>
-        <td><a class="btn-flat btn-small dropdown-button" href="#!"
-               data-activates="dropdown2"><i class="material-icons">edit</i></a>
-        </td>
-      </tr>
+      <tbody class="users-table">
       </tbody>
     </table>
   </div>
 </div>
+
+<div id="modal1" class="modal bottom-sheet blue-grey darken-3">
+  <div class="modal-content white-text">
+    <h4>Добавление модуля</h4>
+    <div class="row" style="border-top: 1px solid white;">
+      <div class="input-field col s4">
+        <input id="username" type="text" class="white-text">
+        <label for="username">Имя пользователя</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="password" type="password" class="white-text">
+        <label for="password">Пароль</label>
+      </div>
+      <div class="input-field col s4">
+        <select class="user-role">
+          <option value="" disabled selected>По умолчанию</option>
+          <option value="Администратор">Администратор</option>
+          <option value="Пользователь">Пользователь</option>
+          <option value="Руководитель">Руководитель</option>
+        </select>
+        <label>Роль</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer  blue-grey darken-3">
+    <a href="#!"
+       class="add-user-btn waves-effect waves-green btn-flat white-text">Добавить</a>
+  </div>
+</div>
+
 </body>
 
 <script>
